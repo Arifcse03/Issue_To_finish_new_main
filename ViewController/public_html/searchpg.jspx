@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelHeader text="Issue To Finish" id="ph1">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend">
+            <af:statusIndicator id="si1"/>
+          </f:facet>
+          <f:facet name="info"/>
+        </af:panelHeader>
+        <af:panelCollection id="pc1" inlineStyle="width:auto;">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                text="Create"
+                                id="cb1" action="*goto"/>
+              <af:spacer width="10" height="10" id="s1"/>
+              <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                text="Delete"
+                                id="cb2"/>
+              <af:spacer width="10" height="10" id="s2"/>
+              <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                text="Save"
+                                id="cb3"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.XxOdmIssueToFinishHTVO1.collectionModel}"
+                    var="row"
+                    rows="#{bindings.XxOdmIssueToFinishHTVO1.rangeSize}"
+                    emptyText="#{bindings.XxOdmIssueToFinishHTVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.XxOdmIssueToFinishHTVO1.rangeSize}"
+                    rowBandingInterval="0"
+                    filterModel="#{bindings.XxOdmIssueToFinishHTVO1Query.queryDescriptor}"
+                    queryListener="#{bindings.XxOdmIssueToFinishHTVO1Query.processQuery}"
+                    filterVisible="true" varStatus="vs"
+                    selectedRowKeys="#{bindings.XxOdmIssueToFinishHTVO1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.XxOdmIssueToFinishHTVO1.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1" partialTriggers="::cb1 ::cb2">
+            <af:column sortProperty="HeaderId" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.HeaderId.label}"
+                       id="c25" visible="false">
+              <af:outputText value="#{row.HeaderId}" id="ot28">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.HeaderId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="ReceiveNo" filterable="true"
+                       sortable="true"
+                       headerText="DOC NO"
+                       id="c2" align="center">
+              <af:commandLink id="ot30" text="#{row.ReceiveNo}" action="*goto"/>
+            </af:column>
+            <af:column sortProperty="InvoiceNo" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.InvoiceNo.label}"
+                       id="c27" align="center" visible="false">
+              <af:outputText value="#{row.InvoiceNo}" id="ot7"/>
+            </af:column>
+            <af:column sortProperty="Color" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Color.label}"
+                       id="c11" visible="false">
+              <af:outputText value="#{row.Color}" id="ot29"/>
+            </af:column>
+            <af:column sortProperty="BuyerId" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.BuyerId.label}"
+                       id="c7" visible="false">
+              <af:outputText value="#{row.BuyerId}" id="ot34">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.BuyerId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="StyleName" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.StyleName.label}"
+                       id="c32" visible="false">
+              <af:outputText value="#{row.StyleName}" id="ot15"/>
+            </af:column>
+            <af:column sortProperty="Season" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Season.label}"
+                       id="c16" visible="false">
+              <af:outputText value="#{row.Season}" id="ot27"/>
+            </af:column>
+            <af:column sortProperty="DateOfGrn" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.DateOfGrn.label}"
+                       id="c9" visible="false">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.DateOfGrn}" id="id1"/>
+              </f:facet>
+              <af:outputText value="#{row.DateOfGrn}" id="ot14">
+                <af:convertDateTime pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.DateOfGrn.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="UpdateOn" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.UpdateOn.label}"
+                       id="c4" visible="false">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.UpdateOn}" id="id2"/>
+              </f:facet>
+              <af:outputText value="#{row.UpdateOn}" id="ot22">
+                <af:convertDateTime pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.UpdateOn.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="CreatedBy" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.CreatedBy.label}"
+                       id="c26" visible="false">
+              <af:outputText value="#{row.CreatedBy}" id="ot17">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.CreatedBy.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="CreationDate" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.CreationDate.label}"
+                       id="c35" visible="false">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.CreationDate}"
+                              id="id3"/>
+              </f:facet>
+              <af:outputText value="#{row.CreationDate}" id="ot23">
+                <af:convertDateTime pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.CreationDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="LastUpdatedBy" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.LastUpdatedBy.label}"
+                       id="c24" visible="false">
+              <af:outputText value="#{row.LastUpdatedBy}" id="ot10">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.LastUpdatedBy.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="LastUpdateDate" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.LastUpdateDate.label}"
+                       id="c23" visible="false">
+              <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.LastUpdateDate}"
+                              id="id4"/>
+              </f:facet>
+              <af:outputText value="#{row.LastUpdateDate}" id="ot24">
+                <af:convertDateTime pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.LastUpdateDate.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="OrgId" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.OrgId.label}"
+                       id="c12" visible="false">
+              <af:outputText value="#{row.OrgId}" id="ot35">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.OrgId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="HeaderNo" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.HeaderNo.label}"
+                       id="c14" visible="false">
+              <af:outputText value="#{row.HeaderNo}" id="ot26">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.HeaderNo.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="LotNumber" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.LotNumber.label}"
+                       id="c22" visible="false">
+              <af:outputText value="#{row.LotNumber}" id="ot33">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.LotNumber.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="Attribute1" filterable="true"
+                       sortable="true"
+                       headerText="Unit"
+                       id="c28" align="center" filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.Attribute1}" id="ot16"/>
+            </af:column>
+            <af:column sortProperty="Attribute2" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute2.label}"
+                       id="c6" visible="false">
+              <af:outputText value="#{row.Attribute2}" id="ot13"/>
+            </af:column>
+            <af:column sortProperty="Attribute3" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute3.label}"
+                       id="c17" visible="false">
+              <af:outputText value="#{row.Attribute3}" id="ot31"/>
+            </af:column>
+            <af:column sortProperty="Attribute4" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute4.label}"
+                       id="c13" visible="false">
+              <af:outputText value="#{row.Attribute4}" id="ot19"/>
+            </af:column>
+            <af:column sortProperty="Attribute5" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute5.label}"
+                       id="c3" visible="false">
+              <af:outputText value="#{row.Attribute5}" id="ot5"/>
+            </af:column>
+            <af:column sortProperty="Attribute6" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute6.label}"
+                       id="c18" visible="false">
+              <af:outputText value="#{row.Attribute6}" id="ot6"/>
+            </af:column>
+            <af:column sortProperty="Attribute7" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute7.label}"
+                       id="c15" visible="false">
+              <af:outputText value="#{row.Attribute7}" id="ot20"/>
+            </af:column>
+            <af:column sortProperty="Attribute8" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute8.label}"
+                       id="c19" visible="false">
+              <af:outputText value="#{row.Attribute8}" id="ot8"/>
+            </af:column>
+            <af:column sortProperty="Attribute9" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute9.label}"
+                       id="c33" visible="false">
+              <af:outputText value="#{row.Attribute9}" id="ot25"/>
+            </af:column>
+            <af:column sortProperty="Attribute10" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute10.label}"
+                       id="c10" visible="false">
+              <af:outputText value="#{row.Attribute10}" id="ot9"/>
+            </af:column>
+            <af:column sortProperty="Attribute11" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute11.label}"
+                       id="c30" visible="false">
+              <af:outputText value="#{row.Attribute11}" id="ot12"/>
+            </af:column>
+            <af:column sortProperty="Attribute12" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute12.label}"
+                       id="c1" visible="false">
+              <af:outputText value="#{row.Attribute12}" id="ot2"/>
+            </af:column>
+            <af:column sortProperty="Attribute13" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute13.label}"
+                       id="c8" visible="false">
+              <af:outputText value="#{row.Attribute13}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="Attribute14" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute14.label}"
+                       id="c21" visible="false">
+              <af:outputText value="#{row.Attribute14}" id="ot21"/>
+            </af:column>
+            <af:column sortProperty="Attribute15" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.Attribute15.label}"
+                       id="c31" visible="false">
+              <af:outputText value="#{row.Attribute15}" id="ot18"/>
+            </af:column>
+            <af:column sortProperty="SalesorderId" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.SalesorderId.label}"
+                       id="c5" visible="false">
+              <af:outputText value="#{row.SalesorderId}" id="ot11">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.SalesorderId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="LineNo" filterable="true" sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.LineNo.label}"
+                       id="c29" visible="false">
+              <af:outputText value="#{row.LineNo}" id="ot3"/>
+            </af:column>
+            <af:column sortProperty="RequisitionGenerated" filterable="true"
+                       sortable="true"
+                       headerText="#{bindings.XxOdmIssueToFinishHTVO1.hints.RequisitionGenerated.label}"
+                       id="c20" visible="false">
+              <af:outputText value="#{row.RequisitionGenerated}" id="ot32"/>
+            </af:column>
+            <af:column sortProperty="PocId" filterable="true" sortable="true"
+                       headerText="POC ID"
+                       id="c34" align="center" filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.PocId}" id="ot4">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.XxOdmIssueToFinishHTVO1.hints.PocId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="BUYER"
+                       id="c36" align="center" sortable="true"
+                       filterable="true" sortProperty="CustomerName"
+                       filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.CustomerName}" id="ot36"/>
+            </af:column>
+            <af:column headerText="Style"
+                       id="c37" align="center" sortable="true"
+                       filterable="true" sortProperty="StyleNew"
+                       filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.StyleNew}" id="ot37"/>
+            </af:column>
+            <af:column headerText="Season"
+                       id="c38" align="center" sortable="true"
+                       filterable="true" sortProperty="SeasonNew"
+                       filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.SeasonNew}" id="ot38"/>
+            </af:column>
+            <af:column headerText="Created By"
+                       id="c40" align="center" sortable="true"
+                       filterable="true" sortProperty="CreationByName"
+                       filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.CreationByName}" id="ot40"/>
+            </af:column>
+            <af:column headerText="Updated by"
+                       id="c39" align="center" sortable="true"
+                       filterable="true" filterFeatures="caseInsensitive">
+              <af:outputText value="#{row.UpdateByName}" id="ot39"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="searchpgPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxOdmIssueToFinishHTVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="XxOdmIssueToFinishHTVO1Iterator"/>
+    <searchRegion Binds="XxOdmIssueToFinishHTVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxOdmIssueToFinishHTVO1Query"/>
+    <invokeAction id="setSession" Binds="setSessionValues" Refresh="always"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XxOdmIssueToFinishHTVO1Iterator"
+          id="XxOdmIssueToFinishHTVO1">
+      <nodeDefinition DefName="model.views.XxOdmIssueToFinishHTVO"
+                      Name="XxOdmIssueToFinishHTVO10">
+        <AttrNames>
+          <Item Value="HeaderId"/>
+          <Item Value="ReceiveNo"/>
+          <Item Value="InvoiceNo"/>
+          <Item Value="Color"/>
+          <Item Value="BuyerId"/>
+          <Item Value="StyleName"/>
+          <Item Value="Season"/>
+          <Item Value="DateOfGrn"/>
+          <Item Value="UpdateOn"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="OrgId"/>
+          <Item Value="HeaderNo"/>
+          <Item Value="LotNumber"/>
+          <Item Value="Attribute1"/>
+          <Item Value="Attribute2"/>
+          <Item Value="Attribute3"/>
+          <Item Value="Attribute4"/>
+          <Item Value="Attribute5"/>
+          <Item Value="Attribute6"/>
+          <Item Value="Attribute7"/>
+          <Item Value="Attribute8"/>
+          <Item Value="Attribute9"/>
+          <Item Value="Attribute10"/>
+          <Item Value="Attribute11"/>
+          <Item Value="Attribute12"/>
+          <Item Value="Attribute13"/>
+          <Item Value="Attribute14"/>
+          <Item Value="Attribute15"/>
+          <Item Value="SalesorderId"/>
+          <Item Value="LineNo"/>
+          <Item Value="RequisitionGenerated"/>
+          <Item Value="PocId"/>
+          <Item Value="CustomerName"/>
+          <Item Value="StyleNew"/>
+          <Item Value="SeasonNew"/>
+          <Item Value="UpdateByName"/>
+          <Item Value="CreationByName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespAppId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <action IterBinding="XxOdmIssueToFinishHTVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="XxOdmIssueToFinishHTVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>
