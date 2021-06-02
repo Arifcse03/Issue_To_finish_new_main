@@ -24,7 +24,8 @@
                           columns="#{bindings.ReceiveNo.hints.displayWidth}"
                           maximumLength="#{bindings.ReceiveNo.hints.precision}"
                           shortDesc="#{bindings.ReceiveNo.hints.tooltip}"
-                          id="it16">
+                          id="it16"
+                          readOnly="#{bindings.ReceiveNo.inputValue eq null ?'false':'true'}">
               <f:validator binding="#{bindings.ReceiveNo.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.Attribute1.inputValue}"
@@ -33,7 +34,8 @@
                           columns="#{bindings.Attribute1.hints.displayWidth}"
                           maximumLength="#{bindings.Attribute1.hints.precision}"
                           shortDesc="#{bindings.Attribute1.hints.tooltip}"
-                          id="it15">
+                          id="it15"
+                          readOnly="#{bindings.Attribute1.inputValue eq null ? 'false':'true'}">
               <f:validator binding="#{bindings.Attribute1.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.InvoiceNo.inputValue}"
@@ -143,14 +145,16 @@
                                           required="#{bindings.LineNo1.hints.mandatory}"
                                           columns="#{bindings.LineNo1.hints.displayWidth}"
                                           shortDesc="#{bindings.LineNo1.hints.tooltip}"
-                                          autoSubmit="true">
+                                          autoSubmit="true"
+                                          readOnly="#{bindings.LineNo1.inputValue eq null ? 'false':'true'}">
               <f:validator binding="#{bindings.LineNo1.validator}"/>
               <af:autoSuggestBehavior suggestedItems="#{bindings.LineNo1.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputDate value="#{bindings.UpdateOn.inputValue}" label="Date:"
                           required="#{bindings.UpdateOn.hints.mandatory}"
                           shortDesc="#{bindings.UpdateOn.hints.tooltip}"
-                          id="id3" visible="true">
+                          id="id3" visible="true"
+                          readOnly="#{bindings.UpdateOn.inputValue eq null ? 'false':'true'}">
               <f:validator binding="#{bindings.UpdateOn.validator}"/>
               <af:convertDateTime pattern="#{bindings.UpdateOn.format}"/>
             </af:inputDate>
@@ -171,7 +175,8 @@
                                           required="#{bindings.PocId1.hints.mandatory}"
                                           columns="#{bindings.PocId1.hints.displayWidth}"
                                           shortDesc="#{bindings.PocId1.hints.tooltip}"
-                                          autoSubmit="true">
+                                          autoSubmit="true"
+                                          readOnly="#{bindings.PocId1.inputValue eq null ? 'false':'true'}">
               <f:validator binding="#{bindings.PocId1.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.PocId1.format}"/>

@@ -20,7 +20,7 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT L.SYSTEM_ID,
+    <![CDATA[SELECT  distinct L.SYSTEM_ID,
 CHARACTER1,
 CHARACTER2,
 CHARACTER3,
